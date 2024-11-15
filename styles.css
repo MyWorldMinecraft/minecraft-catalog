@@ -3,7 +3,12 @@ body {
     background-color: #e0ffe0;
     text-align: center;
     color: #333;
+    background-image: url('background.jpg'); /* Путь к изображению */
+    background-size: cover; /* Масштабируем фон, чтобы он покрывал всю страницу */
+    background-attachment: fixed; /* Фон будет оставаться неподвижным при прокрутке */
+    background-position: center; /* Центрируем фон */
 }
+
 
 header {
     padding: 20px;
