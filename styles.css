@@ -14,12 +14,18 @@ h1 {
     color: #333;
 }
 
+/* Убедимся, что контейнер занимает всю ширину */
 .product-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     padding: 20px;
+    box-sizing: border-box;
 }
+
 
 .product-card {
     border: 1px solid #ccc;
