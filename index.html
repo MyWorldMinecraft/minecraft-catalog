@@ -10,8 +10,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: url('background.png') no-repeat center center fixed;
-            background-size: cover;
+            background: linear-gradient(to bottom, #f0f0f0, #ffffff);
             color: #333;
         }
 
@@ -41,19 +40,19 @@
         }
 
         .category-buttons a {
-            background-color: #4CAF50;
+            background: linear-gradient(to right, #4CAF50, #45a049);
             color: white;
             text-decoration: none;
-            padding: 15px 25px;
+            padding: 10px 20px;
             border-radius: 8px;
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: bold;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s, transform 0.2s;
+            transition: background 0.3s, transform 0.2s;
         }
 
         .category-buttons a:hover {
-            background-color: #45a049;
+            background: linear-gradient(to right, #45a049, #3e8e41);
             transform: scale(1.05);
         }
 
@@ -128,6 +127,34 @@
             margin-bottom: 10px;
         }
 
+        .product-card .buy-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .product-card .buy-button:hover {
+            background-color: #45a049;
+        }
+
+        .new-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: red;
+            color: white;
+            padding: 5px 10px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
         footer {
             text-align: center;
             padding: 10px 0;
@@ -157,40 +184,44 @@
         <h2 class="category-title">Наборы</h2>
         <div class="product-grid">
     
-            <div class="product-card">
+            <div class="product-card" style="position: relative;">
+                
                 <img src="https://via.placeholder.com/250" alt="Товар 1">
                 <h3>Товар 1</h3>
                 <div class="rating">★★★★☆ 4.8</div>
-                
                 <p>Описание товара 1: интересный и качественный.</p>
                 <p class="price">Цена: 10 руб.</p>
+                <button class="buy-button">Купить</button>
             </div>
         
-            <div class="product-card">
+            <div class="product-card" style="position: relative;">
+                
                 <img src="https://via.placeholder.com/250" alt="Товар 2">
                 <h3>Товар 2</h3>
                 <div class="rating">★★★★☆ 4.8</div>
-                
                 <p>Описание товара 2: интересный и качественный.</p>
                 <p class="price">Цена: 20 руб.</p>
+                <button class="buy-button">Купить</button>
             </div>
         
-            <div class="product-card">
+            <div class="product-card" style="position: relative;">
+                
                 <img src="https://via.placeholder.com/250" alt="Товар 3">
                 <h3>Товар 3</h3>
                 <div class="rating">★★★★☆ 4.8</div>
-                
                 <p>Описание товара 3: интересный и качественный.</p>
                 <p class="price">Цена: 30 руб.</p>
+                <button class="buy-button">Купить</button>
             </div>
         
-            <div class="product-card">
+            <div class="product-card" style="position: relative;">
+                
                 <img src="https://via.placeholder.com/250" alt="Товар 4">
                 <h3>Товар 4</h3>
                 <div class="rating">★★★★☆ 4.8</div>
-                
                 <p>Описание товара 4: интересный и качественный.</p>
                 <p class="price">Цена: 40 руб.</p>
+                <button class="buy-button">Купить</button>
             </div>
         
         </div>
@@ -200,40 +231,44 @@
         <h2 class="category-title">New</h2>
         <div class="product-grid">
     
-            <div class="product-card">
+            <div class="product-card" style="position: relative;">
+                <span class='new-badge'>Новинка</span>
                 <img src="https://via.placeholder.com/250" alt="Товар 5">
                 <h3>Товар 5</h3>
                 <div class="rating">★★★★☆ 4.8</div>
-                <span style='color:red;'>Новинка</span>
                 <p>Описание товара 5: интересный и качественный.</p>
                 <p class="price">Цена: 50 руб.</p>
+                <button class="buy-button">Купить</button>
             </div>
         
-            <div class="product-card">
+            <div class="product-card" style="position: relative;">
+                <span class='new-badge'>Новинка</span>
                 <img src="https://via.placeholder.com/250" alt="Товар 6">
                 <h3>Товар 6</h3>
                 <div class="rating">★★★★☆ 4.8</div>
-                <span style='color:red;'>Новинка</span>
                 <p>Описание товара 6: интересный и качественный.</p>
                 <p class="price">Цена: 60 руб.</p>
+                <button class="buy-button">Купить</button>
             </div>
         
-            <div class="product-card">
+            <div class="product-card" style="position: relative;">
+                <span class='new-badge'>Новинка</span>
                 <img src="https://via.placeholder.com/250" alt="Товар 7">
                 <h3>Товар 7</h3>
                 <div class="rating">★★★★☆ 4.8</div>
-                <span style='color:red;'>Новинка</span>
                 <p>Описание товара 7: интересный и качественный.</p>
                 <p class="price">Цена: 70 руб.</p>
+                <button class="buy-button">Купить</button>
             </div>
         
-            <div class="product-card">
+            <div class="product-card" style="position: relative;">
+                <span class='new-badge'>Новинка</span>
                 <img src="https://via.placeholder.com/250" alt="Товар 8">
                 <h3>Товар 8</h3>
                 <div class="rating">★★★★☆ 4.8</div>
-                <span style='color:red;'>Новинка</span>
                 <p>Описание товара 8: интересный и качественный.</p>
                 <p class="price">Цена: 80 руб.</p>
+                <button class="buy-button">Купить</button>
             </div>
         
         </div>
@@ -243,40 +278,44 @@
         <h2 class="category-title">Кубики+</h2>
         <div class="product-grid">
     
-            <div class="product-card">
+            <div class="product-card" style="position: relative;">
+                
                 <img src="https://via.placeholder.com/250" alt="Товар 9">
                 <h3>Товар 9</h3>
                 <div class="rating">★★★★☆ 4.8</div>
-                
                 <p>Описание товара 9: интересный и качественный.</p>
                 <p class="price">Цена: 90 руб.</p>
+                <button class="buy-button">Купить</button>
             </div>
         
-            <div class="product-card">
+            <div class="product-card" style="position: relative;">
+                
                 <img src="https://via.placeholder.com/250" alt="Товар 10">
                 <h3>Товар 10</h3>
                 <div class="rating">★★★★☆ 4.8</div>
-                
                 <p>Описание товара 10: интересный и качественный.</p>
                 <p class="price">Цена: 100 руб.</p>
+                <button class="buy-button">Купить</button>
             </div>
         
-            <div class="product-card">
+            <div class="product-card" style="position: relative;">
+                
                 <img src="https://via.placeholder.com/250" alt="Товар 11">
                 <h3>Товар 11</h3>
                 <div class="rating">★★★★☆ 4.8</div>
-                
                 <p>Описание товара 11: интересный и качественный.</p>
                 <p class="price">Цена: 110 руб.</p>
+                <button class="buy-button">Купить</button>
             </div>
         
-            <div class="product-card">
+            <div class="product-card" style="position: relative;">
+                
                 <img src="https://via.placeholder.com/250" alt="Товар 12">
                 <h3>Товар 12</h3>
                 <div class="rating">★★★★☆ 4.8</div>
-                
                 <p>Описание товара 12: интересный и качественный.</p>
                 <p class="price">Цена: 120 руб.</p>
+                <button class="buy-button">Купить</button>
             </div>
         
         </div>
@@ -286,40 +325,44 @@
         <h2 class="category-title">Уникальные Наборы</h2>
         <div class="product-grid">
     
-            <div class="product-card">
+            <div class="product-card" style="position: relative;">
+                
                 <img src="https://via.placeholder.com/250" alt="Товар 13">
                 <h3>Товар 13</h3>
                 <div class="rating">★★★★☆ 4.8</div>
-                
                 <p>Описание товара 13: интересный и качественный.</p>
                 <p class="price">Цена: 130 руб.</p>
+                <button class="buy-button">Купить</button>
             </div>
         
-            <div class="product-card">
+            <div class="product-card" style="position: relative;">
+                
                 <img src="https://via.placeholder.com/250" alt="Товар 14">
                 <h3>Товар 14</h3>
                 <div class="rating">★★★★☆ 4.8</div>
-                
                 <p>Описание товара 14: интересный и качественный.</p>
                 <p class="price">Цена: 140 руб.</p>
+                <button class="buy-button">Купить</button>
             </div>
         
-            <div class="product-card">
+            <div class="product-card" style="position: relative;">
+                
                 <img src="https://via.placeholder.com/250" alt="Товар 15">
                 <h3>Товар 15</h3>
                 <div class="rating">★★★★☆ 4.8</div>
-                
                 <p>Описание товара 15: интересный и качественный.</p>
                 <p class="price">Цена: 150 руб.</p>
+                <button class="buy-button">Купить</button>
             </div>
         
-            <div class="product-card">
+            <div class="product-card" style="position: relative;">
+                
                 <img src="https://via.placeholder.com/250" alt="Товар 16">
                 <h3>Товар 16</h3>
                 <div class="rating">★★★★☆ 4.8</div>
-                
                 <p>Описание товара 16: интересный и качественный.</p>
                 <p class="price">Цена: 160 руб.</p>
+                <button class="buy-button">Купить</button>
             </div>
         
         </div>
