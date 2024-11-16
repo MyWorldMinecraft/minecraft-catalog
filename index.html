@@ -10,7 +10,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, #f0f0f0, #ffffff);
+            background: linear-gradient(to bottom, #e0f7fa, #ffffff);
             color: #333;
         }
 
@@ -26,14 +26,13 @@
         }
 
         header img {
-            height: 40px;
-            margin-right: 10px;
+            height: 50px;
         }
 
         .category-buttons {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
+            justify-content: center;
             gap: 15px;
             margin: 20px 0;
             padding: 10px;
@@ -45,10 +44,13 @@
             text-decoration: none;
             padding: 10px 20px;
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 1.2rem;
             font-weight: bold;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: background 0.3s, transform 0.2s;
+            display: inline-block;
+            width: 150px;
+            text-align: center;
         }
 
         .category-buttons a:hover {
@@ -81,13 +83,13 @@
         }
 
         .product-card {
-            border: 1px solid #ddd;
             border-radius: 10px;
             padding: 15px;
-            background-color: #fff;
-            transition: transform 0.2s, box-shadow 0.2s;
+            background: rgba(240, 255, 240, 0.9); /* Полупрозрачный фон */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .product-card:hover {
@@ -171,12 +173,14 @@
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="Логотип">
+        <img src="avatar_placeholder.png" alt="Человечек" />
     </header>
     <div class="category-buttons">
         <a href="#sets">Наборы</a>
         <a href="#new">New</a>
         <a href="#cubes">Кубики+</a>
+    </div>
+    <div class="category-buttons">
         <a href="#unique">Уникальные Наборы</a>
     </div>
 
@@ -184,7 +188,7 @@
         <h2 class="category-title">Наборы</h2>
         <div class="product-grid">
     
-            <div class="product-card" style="position: relative;">
+            <div class="product-card">
                 
                 <img src="https://via.placeholder.com/250" alt="Товар 1">
                 <h3>Товар 1</h3>
@@ -194,7 +198,7 @@
                 <button class="buy-button">Купить</button>
             </div>
         
-            <div class="product-card" style="position: relative;">
+            <div class="product-card">
                 
                 <img src="https://via.placeholder.com/250" alt="Товар 2">
                 <h3>Товар 2</h3>
@@ -204,7 +208,7 @@
                 <button class="buy-button">Купить</button>
             </div>
         
-            <div class="product-card" style="position: relative;">
+            <div class="product-card">
                 
                 <img src="https://via.placeholder.com/250" alt="Товар 3">
                 <h3>Товар 3</h3>
@@ -214,7 +218,7 @@
                 <button class="buy-button">Купить</button>
             </div>
         
-            <div class="product-card" style="position: relative;">
+            <div class="product-card">
                 
                 <img src="https://via.placeholder.com/250" alt="Товар 4">
                 <h3>Товар 4</h3>
@@ -231,7 +235,7 @@
         <h2 class="category-title">New</h2>
         <div class="product-grid">
     
-            <div class="product-card" style="position: relative;">
+            <div class="product-card">
                 <span class='new-badge'>Новинка</span>
                 <img src="https://via.placeholder.com/250" alt="Товар 5">
                 <h3>Товар 5</h3>
@@ -241,7 +245,7 @@
                 <button class="buy-button">Купить</button>
             </div>
         
-            <div class="product-card" style="position: relative;">
+            <div class="product-card">
                 <span class='new-badge'>Новинка</span>
                 <img src="https://via.placeholder.com/250" alt="Товар 6">
                 <h3>Товар 6</h3>
@@ -251,7 +255,7 @@
                 <button class="buy-button">Купить</button>
             </div>
         
-            <div class="product-card" style="position: relative;">
+            <div class="product-card">
                 <span class='new-badge'>Новинка</span>
                 <img src="https://via.placeholder.com/250" alt="Товар 7">
                 <h3>Товар 7</h3>
@@ -261,7 +265,7 @@
                 <button class="buy-button">Купить</button>
             </div>
         
-            <div class="product-card" style="position: relative;">
+            <div class="product-card">
                 <span class='new-badge'>Новинка</span>
                 <img src="https://via.placeholder.com/250" alt="Товар 8">
                 <h3>Товар 8</h3>
@@ -278,7 +282,7 @@
         <h2 class="category-title">Кубики+</h2>
         <div class="product-grid">
     
-            <div class="product-card" style="position: relative;">
+            <div class="product-card">
                 
                 <img src="https://via.placeholder.com/250" alt="Товар 9">
                 <h3>Товар 9</h3>
@@ -288,7 +292,7 @@
                 <button class="buy-button">Купить</button>
             </div>
         
-            <div class="product-card" style="position: relative;">
+            <div class="product-card">
                 
                 <img src="https://via.placeholder.com/250" alt="Товар 10">
                 <h3>Товар 10</h3>
@@ -298,7 +302,7 @@
                 <button class="buy-button">Купить</button>
             </div>
         
-            <div class="product-card" style="position: relative;">
+            <div class="product-card">
                 
                 <img src="https://via.placeholder.com/250" alt="Товар 11">
                 <h3>Товар 11</h3>
@@ -308,7 +312,7 @@
                 <button class="buy-button">Купить</button>
             </div>
         
-            <div class="product-card" style="position: relative;">
+            <div class="product-card">
                 
                 <img src="https://via.placeholder.com/250" alt="Товар 12">
                 <h3>Товар 12</h3>
@@ -325,7 +329,7 @@
         <h2 class="category-title">Уникальные Наборы</h2>
         <div class="product-grid">
     
-            <div class="product-card" style="position: relative;">
+            <div class="product-card">
                 
                 <img src="https://via.placeholder.com/250" alt="Товар 13">
                 <h3>Товар 13</h3>
@@ -335,7 +339,7 @@
                 <button class="buy-button">Купить</button>
             </div>
         
-            <div class="product-card" style="position: relative;">
+            <div class="product-card">
                 
                 <img src="https://via.placeholder.com/250" alt="Товар 14">
                 <h3>Товар 14</h3>
@@ -345,7 +349,7 @@
                 <button class="buy-button">Купить</button>
             </div>
         
-            <div class="product-card" style="position: relative;">
+            <div class="product-card">
                 
                 <img src="https://via.placeholder.com/250" alt="Товар 15">
                 <h3>Товар 15</h3>
@@ -355,7 +359,7 @@
                 <button class="buy-button">Купить</button>
             </div>
         
-            <div class="product-card" style="position: relative;">
+            <div class="product-card">
                 
                 <img src="https://via.placeholder.com/250" alt="Товар 16">
                 <h3>Товар 16</h3>
