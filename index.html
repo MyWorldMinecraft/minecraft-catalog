@@ -4,24 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyWorldMinecraft</title>
+    <title>Каталог Minecraft</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: url('background.jpg') no-repeat center center fixed;
+            background: url('background.png') no-repeat center center fixed;
             background-size: cover;
             color: #333;
         }
 
         header {
-            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             padding: 20px 0;
-            font-size: 2.5rem;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
             background-color: rgba(0, 0, 0, 0.8);
-            margin-bottom: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header img {
+            height: 40px;
+            margin-right: 10px;
         }
 
         .category-buttons {
@@ -61,14 +68,16 @@
 
         .category-title {
             font-size: 2rem;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             color: #4CAF50;
             text-align: center;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
         }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
 
@@ -113,143 +122,161 @@
             margin-bottom: 15px;
         }
 
-        .product-card button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
+        .product-card .rating {
             font-size: 1rem;
-            transition: background-color 0.3s;
+            color: #ffa500;
+            margin-bottom: 10px;
         }
 
-        .product-card button:hover {
-            background-color: #45a049;
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
-    <header>MyWorldMinecraft</header>
+    <header>
+        <img src="logo.png" alt="Логотип">
+    </header>
     <div class="category-buttons">
-        <a href="#new">Новинки</a>
-        <a href="#cubes">Доп Кубики</a>
         <a href="#sets">Наборы</a>
+        <a href="#new">New</a>
+        <a href="#cubes">Кубики+</a>
         <a href="#unique">Уникальные Наборы</a>
     </div>
 
-    <div class="container" id="new">
-        <h2 class="category-title">Новинки</h2>
+    <div class="container" id="sets">
+        <h2 class="category-title">Наборы</h2>
         <div class="product-grid">
     
             <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Товар 1">
+                <img src="https://via.placeholder.com/250" alt="Товар 1">
                 <h3>Товар 1</h3>
+                <div class="rating">★★★★☆ 4.8</div>
+                
                 <p>Описание товара 1: интересный и качественный.</p>
                 <p class="price">Цена: 10 руб.</p>
-                <button>Купить</button>
             </div>
         
             <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Товар 2">
+                <img src="https://via.placeholder.com/250" alt="Товар 2">
                 <h3>Товар 2</h3>
+                <div class="rating">★★★★☆ 4.8</div>
+                
                 <p>Описание товара 2: интересный и качественный.</p>
                 <p class="price">Цена: 20 руб.</p>
-                <button>Купить</button>
             </div>
         
             <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Товар 3">
+                <img src="https://via.placeholder.com/250" alt="Товар 3">
                 <h3>Товар 3</h3>
+                <div class="rating">★★★★☆ 4.8</div>
+                
                 <p>Описание товара 3: интересный и качественный.</p>
                 <p class="price">Цена: 30 руб.</p>
-                <button>Купить</button>
             </div>
         
             <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Товар 4">
+                <img src="https://via.placeholder.com/250" alt="Товар 4">
                 <h3>Товар 4</h3>
+                <div class="rating">★★★★☆ 4.8</div>
+                
                 <p>Описание товара 4: интересный и качественный.</p>
                 <p class="price">Цена: 40 руб.</p>
-                <button>Купить</button>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="container" id="new">
+        <h2 class="category-title">New</h2>
+        <div class="product-grid">
+    
+            <div class="product-card">
+                <img src="https://via.placeholder.com/250" alt="Товар 5">
+                <h3>Товар 5</h3>
+                <div class="rating">★★★★☆ 4.8</div>
+                <span style='color:red;'>Новинка</span>
+                <p>Описание товара 5: интересный и качественный.</p>
+                <p class="price">Цена: 50 руб.</p>
+            </div>
+        
+            <div class="product-card">
+                <img src="https://via.placeholder.com/250" alt="Товар 6">
+                <h3>Товар 6</h3>
+                <div class="rating">★★★★☆ 4.8</div>
+                <span style='color:red;'>Новинка</span>
+                <p>Описание товара 6: интересный и качественный.</p>
+                <p class="price">Цена: 60 руб.</p>
+            </div>
+        
+            <div class="product-card">
+                <img src="https://via.placeholder.com/250" alt="Товар 7">
+                <h3>Товар 7</h3>
+                <div class="rating">★★★★☆ 4.8</div>
+                <span style='color:red;'>Новинка</span>
+                <p>Описание товара 7: интересный и качественный.</p>
+                <p class="price">Цена: 70 руб.</p>
+            </div>
+        
+            <div class="product-card">
+                <img src="https://via.placeholder.com/250" alt="Товар 8">
+                <h3>Товар 8</h3>
+                <div class="rating">★★★★☆ 4.8</div>
+                <span style='color:red;'>Новинка</span>
+                <p>Описание товара 8: интересный и качественный.</p>
+                <p class="price">Цена: 80 руб.</p>
             </div>
         
         </div>
     </div>
     
     <div class="container" id="cubes">
-        <h2 class="category-title">Доп Кубики</h2>
+        <h2 class="category-title">Кубики+</h2>
         <div class="product-grid">
     
             <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Товар 5">
-                <h3>Товар 5</h3>
-                <p>Описание товара 5: интересный и качественный.</p>
-                <p class="price">Цена: 50 руб.</p>
-                <button>Купить</button>
-            </div>
-        
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Товар 6">
-                <h3>Товар 6</h3>
-                <p>Описание товара 6: интересный и качественный.</p>
-                <p class="price">Цена: 60 руб.</p>
-                <button>Купить</button>
-            </div>
-        
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Товар 7">
-                <h3>Товар 7</h3>
-                <p>Описание товара 7: интересный и качественный.</p>
-                <p class="price">Цена: 70 руб.</p>
-                <button>Купить</button>
-            </div>
-        
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Товар 8">
-                <h3>Товар 8</h3>
-                <p>Описание товара 8: интересный и качественный.</p>
-                <p class="price">Цена: 80 руб.</p>
-                <button>Купить</button>
-            </div>
-        
-        </div>
-    </div>
-    
-    <div class="container" id="sets">
-        <h2 class="category-title">Наборы</h2>
-        <div class="product-grid">
-    
-            <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Товар 9">
+                <img src="https://via.placeholder.com/250" alt="Товар 9">
                 <h3>Товар 9</h3>
+                <div class="rating">★★★★☆ 4.8</div>
+                
                 <p>Описание товара 9: интересный и качественный.</p>
                 <p class="price">Цена: 90 руб.</p>
-                <button>Купить</button>
             </div>
         
             <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Товар 10">
+                <img src="https://via.placeholder.com/250" alt="Товар 10">
                 <h3>Товар 10</h3>
+                <div class="rating">★★★★☆ 4.8</div>
+                
                 <p>Описание товара 10: интересный и качественный.</p>
                 <p class="price">Цена: 100 руб.</p>
-                <button>Купить</button>
             </div>
         
             <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Товар 11">
+                <img src="https://via.placeholder.com/250" alt="Товар 11">
                 <h3>Товар 11</h3>
+                <div class="rating">★★★★☆ 4.8</div>
+                
                 <p>Описание товара 11: интересный и качественный.</p>
                 <p class="price">Цена: 110 руб.</p>
-                <button>Купить</button>
             </div>
         
             <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Товар 12">
+                <img src="https://via.placeholder.com/250" alt="Товар 12">
                 <h3>Товар 12</h3>
+                <div class="rating">★★★★☆ 4.8</div>
+                
                 <p>Описание товара 12: интересный и качественный.</p>
                 <p class="price">Цена: 120 руб.</p>
-                <button>Купить</button>
             </div>
         
         </div>
@@ -260,39 +287,46 @@
         <div class="product-grid">
     
             <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Товар 13">
+                <img src="https://via.placeholder.com/250" alt="Товар 13">
                 <h3>Товар 13</h3>
+                <div class="rating">★★★★☆ 4.8</div>
+                
                 <p>Описание товара 13: интересный и качественный.</p>
                 <p class="price">Цена: 130 руб.</p>
-                <button>Купить</button>
             </div>
         
             <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Товар 14">
+                <img src="https://via.placeholder.com/250" alt="Товар 14">
                 <h3>Товар 14</h3>
+                <div class="rating">★★★★☆ 4.8</div>
+                
                 <p>Описание товара 14: интересный и качественный.</p>
                 <p class="price">Цена: 140 руб.</p>
-                <button>Купить</button>
             </div>
         
             <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Товар 15">
+                <img src="https://via.placeholder.com/250" alt="Товар 15">
                 <h3>Товар 15</h3>
+                <div class="rating">★★★★☆ 4.8</div>
+                
                 <p>Описание товара 15: интересный и качественный.</p>
                 <p class="price">Цена: 150 руб.</p>
-                <button>Купить</button>
             </div>
         
             <div class="product-card">
-                <img src="https://via.placeholder.com/300" alt="Товар 16">
+                <img src="https://via.placeholder.com/250" alt="Товар 16">
                 <h3>Товар 16</h3>
+                <div class="rating">★★★★☆ 4.8</div>
+                
                 <p>Описание товара 16: интересный и качественный.</p>
                 <p class="price">Цена: 160 руб.</p>
-                <button>Купить</button>
             </div>
         
         </div>
     </div>
     
+    <footer>
+        © 2024 Minecraft Catalog. Все права защищены.
+    </footer>
 </body>
 </html>
