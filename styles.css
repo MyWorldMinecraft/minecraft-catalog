@@ -76,11 +76,13 @@ header {
 }
 
 .product-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 15px;
+    width: 100%; /* Установить изображение по ширине карточки */
+    height: auto; /* Сохранять пропорции изображения */
+    max-height: 300px; /* Ограничить высоту, чтобы не нарушать структуру */
+    object-fit: cover; /* Изображение подгоняется под размеры карточки */
+    border-radius: 8px; /* Скруглить углы изображения */
 }
+
 
 .product-card h3 {
     font-size: 1.25rem;
