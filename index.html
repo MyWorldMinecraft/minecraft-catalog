@@ -1,0 +1,629 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог Minecraft</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('background.jpg') no-repeat center center fixed; background-size: cover;
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .pixel-decorator {
+            width: 100%;
+            height: 5px;
+            background: repeating-linear-gradient(
+                45deg,
+                #4CAF50,
+                #4CAF50 10px,
+                #45a049 10px,
+                #45a049 20px
+            );
+        }
+
+        .category-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 15px 0;
+            padding: 10px;
+        }
+
+        .category-buttons a {
+            background: linear-gradient(to right, #4CAF50, #45a049);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, transform 0.2s;
+            display: inline-block;
+            width: 150px;
+            text-align: center;
+        }
+
+        .category-buttons a:hover {
+            background: linear-gradient(to right, #45a049, #3e8e41);
+            transform: scale(1.05);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 10px auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #4CAF50;
+            text-align: center;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+            font-family: "Courier New", Courier, monospace;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+        }
+
+        .product-card {
+            border-radius: 10px;
+            padding: 8px;
+            background: rgba(240, 255, 240, 0.9);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 5px;
+        }
+
+        .product-card h3 {
+            font-size: 0.9rem;
+            color: #333;
+            margin: 0 0 5px;
+        }
+
+        .product-card p {
+            font-size: 0.8rem;
+            color: #666;
+            margin: 0 0 5px;
+        }
+
+        .product-card .price {
+            font-size: 0.9rem;
+            color: #4CAF50;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .product-card .rating {
+            font-size: 0.8rem;
+            color: #ffa500;
+            margin-bottom: 5px;
+        }
+
+        .product-card .buy-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .product-card .buy-button:hover {
+            background-color: #45a049;
+        }
+
+        .new-badge {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: red;
+            color: white;
+            padding: 2px 5px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            font-size: 0.8rem;
+            margin-top: 20px;
+        }
+
+        .to-top-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .to-top-button:hover {
+            transform: scale(1.1);
+            background-color: #45a049;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="pixel-decorator"></div>
+    </header>
+    <div class="category-buttons">
+        <a href="#sets">Наборы</a>
+        <a href="#new">Новинки</a>
+        <a href="#cubes">Больше кубиков</a>
+		<a href="#unique">Уникальные Наборы</a>
+    </div>
+    <!--<div class="category-buttons">
+        <a href="#unique">Уникальные Наборы</a>
+    </div>-->
+
+    <div class="container" id="sets">
+        <h2 class="category-title">Наборы</h2>
+        <div class="product-grid">
+    
+            <div class="product-card">
+                
+                <img src="T009.png" alt="Портал в край">
+                <h3>Портал в край</h3>
+                <p>32 Блока</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 10 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+			
+			<div class="product-card">
+                
+                <img src="T011.png" alt="Книжный портал">
+                <h3>Книжный портал</h3>
+                <p>32 Блока</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 10 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+
+			<div class="product-card">
+                
+                <img src="T015.png" alt="Пещера с ресурсами">
+                <h3>Пещера с ресурсами</h3>
+                <p>128 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 10 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+        
+			<div class="product-card">
+			
+                <img src="T027.png" alt="Лагерь у портала">
+                <h3>Лагерь у портала</h3>
+                <p>48 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 10 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+			
+			<div class="product-card">
+                
+                <img src="T033.png" alt="Шахта">
+                <h3>Шахта</h3>
+                <p>128 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 10 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+
+			<div class="product-card">
+                
+                <img src="T034.png" alt="Портал в ад">
+                <h3>Портал в ад</h3>
+                <p>32 Блока</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 10 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+        
+			<div class="product-card">
+			
+                <img src="T036.png" alt="Дом с фермой">
+                <h3>Дом с фермой</h3>
+                <p>192 Блока</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 10 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+			
+			<div class="product-card">
+                
+                <img src="T037.png" alt="Поляна у горы с порталом">
+                <h3>Поляна у горы с порталом</h3>
+                <p>384 Блока</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 10 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+
+			<div class="product-card">
+                
+                <img src="T038.png" alt="Остров с деревом">
+                <h3>Остров с деревом</h3>
+                <p>38 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 10 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+			
+			<div class="product-card">
+			
+                <img src="T039.png" alt="Полянка с березой">
+                <h3>Полянка с березой</h3>
+                <p>48 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 10 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+			
+			<div class="product-card">
+                
+                <img src="T042.png" alt="Портал из светокамня">
+                <h3>Портал из светокамня</h3>
+                <p>32 Блока</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 10 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+
+			<div class="product-card">
+                
+                <img src="T043.png" alt="Портал с лавой">
+                <h3>Портал с лавой</h3>
+                <p>32 Блока</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 10 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+			
+			<div class="product-card">
+			
+                <img src="T048.png" alt="Постройка из дерева">
+                <h3>Постройка из дерева</h3>
+                <p>128 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 10 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+			
+			<div class="product-card">
+                
+                <img src="T050.png" alt="Дом из дерева">
+                <h3>Дом из дерева</h3>
+                <p>80 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 10 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+
+			<div class="product-card">
+                
+                <img src="T051.png" alt="Дом из булыжника">
+                <h3>Дом из булыжника</h3>
+                <p>80 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 10 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+			
+			
+			<div class="product-card">
+			
+                <img src="T052.png" alt="Дом из кирпича">
+                <h3>Дом из кирпича</h3>
+                <p>80 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 10 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+			
+			<div class="product-card">
+                
+                <img src="T057.png" alt="Пляж">
+                <h3>Пляж</h3>
+                <p>128 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 10 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+
+			<div class="product-card">
+                
+                <img src="T058.png" alt="Портал в аду">
+                <h3>Портал в аду</h3>
+                <p>128 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 10 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+			
+			<div class="product-card">
+			
+                <img src="T059.png" alt="Водопад">
+                <h3>Водопад</h3>
+                <p>128 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 10 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+			
+			<div class="product-card">
+                
+                <img src="T060.png" alt="Башня ведьмы">
+                <h3>Башня ведьмы</h3>
+                <p>224 Блока</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 10 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+
+			<div class="product-card">
+                
+                <img src="T068.png" alt="Сакура на поляне">
+                <h3>Сакура на поляне</h3>
+                <p>128 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 10 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+			
+			<div class="product-card">
+			
+                <img src="T079.png" alt="Маленький домик">
+                <h3>Маленький домик</h3>
+                <p>107 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 10 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+			
+			<div class="product-card">
+                
+                <img src="T080.png" alt="Портал в шахте с ресурсами">
+                <h3>Портал в шахте с ресурсами</h3>
+                <p>100 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 10 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+
+			<div class="product-card">
+                
+                <img src="T084.png" alt="Дом фермера">
+                <h3>Дом фермера</h3>
+                <p>100 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 10 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+			
+        </div>
+    </div>
+    
+    <div class="container" id="new">
+        <h2 class="category-title">Новинки</h2>
+        <div class="product-grid">
+    
+            <div class="product-card">
+                <span class='new-badge'>Новинка</span>
+                <img src="66.png" alt="Лагерь новичка">
+                <h3>Лагерь новичка</h3>
+                <p>212 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 50 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+			
+			<div class="product-card">
+                <span class='new-badge'>Новинка</span>
+                <img src="85.png" alt="Два домикма">
+                <h3>Два домикма</h3>
+                <p>200 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 50 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+			
+            <div class="product-card">
+                <span class='new-badge'>Новинка</span>
+                <img src="110.png" alt="Портал у крепостии в аду">
+                <h3>Портал у крепостии в аду</h3>
+                <p>132 Блока</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 50 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+			
+            <div class="product-card">
+                <span class='new-badge'>Новинка</span>
+                <img src="112.png" alt="Магическая пещера">
+                <h3>Магическая пещера</h3>
+                <p>320 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 50 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="container" id="cubes">
+        <h2 class="category-title">Больше кубиков</h2>
+        <div class="product-grid">
+    
+            <div class="product-card">
+                
+                <img src="https://via.placeholder.com/120" alt="Товар 9">
+                <h3>Товар 9</h3>
+                <div class="rating">★★★★☆ 4.8</div>
+                <p>Описание товара 9: интересный и качественный.</p>
+                <p class="price">Цена: 90 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+        
+        </div>
+    </div>
+    
+    <div class="container" id="unique">
+        <h2 class="category-title">Уникальные Наборы</h2>
+        <div class="product-grid">
+    
+            <div class="product-card">
+                <img src="ferma.png" alt="Ферма">
+                <h3>Ферма</h3>
+                <p>50 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 130 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+            <div class="product-card">
+                <img src="newyear.png" alt="Новогодний">
+                <h3>Новогодний</h3>
+                <p>320 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 130 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+            <div class="product-card">
+                <img src="S001.jpg" alt="Водопой">
+                <h3>Водопой</h3>
+                <p>90 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 130 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+            <div class="product-card">
+                <img src="S002.jpg" alt="Пещера скелетов">
+                <h3>Пещера скелетов</h3>
+                <p>66 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 130 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+            <div class="product-card">
+                <img src="S003.jpg" alt="Адский замок">
+                <h3>Адский замок</h3>
+                <p>77 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 130 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+            <div class="product-card">
+                <img src="S004.jpg" alt="Крипер в пустыне">
+                <h3>Крипер в пустыне</h3>
+                <p>78 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 130 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+            <div class="product-card">
+                <img src="S005.jpg" alt="Край (Эндер мир)">
+                <h3>Край (Эндер мир)</h3>
+                <p>62 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 130 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+            <div class="product-card">
+                <img src="BEE.jpg" alt="Пасека">
+                <h3>Пасека</h3>
+                <p>92 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 130 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+            <div class="product-card">
+                <img src="Dragon.jpg" alt="Дракон">
+                <h3>Дракон</h3>
+                <p>158 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 130 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+            <div class="product-card">
+                <img src="Ghast.jpg" alt="Гаст">
+                <h3>Гаст</h3>
+                <p>120 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 130 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+            <div class="product-card">
+                <img src="Straj.jpg" alt="Замок стражей">
+                <h3>Замок стражей</h3>
+                <p>188 Блоков</p>
+				<div class="rating">★★★★★ 5</div>
+                <p class="price">Цена: 130 руб.</p>
+                <button class="buy-button">Купить</button>
+            </div>
+        </div>
+    </div>
+    
+    <button class="to-top-button" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</button>
+    <footer>
+        © 2024 Minecraft Catalog. Все права защищены.
+    </footer>
+</body>
+</html>
